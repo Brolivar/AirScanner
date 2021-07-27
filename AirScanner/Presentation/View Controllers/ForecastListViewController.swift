@@ -28,6 +28,5 @@ class ForecastListViewController: UIViewController {
         }
     }
 
-
 }
 

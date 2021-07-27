@@ -15,10 +15,12 @@ enum AirQualityIndex: Int {
     case poor
     case veryPoor
 }
-// By abstracting the forecast into a protocol we ensure the whole object is not shared,
+// By abstracting the forecast (and forecast components) into a protocol we ensure the whole object is not shared,
 // only the protocol with the functions to read or write, which is way safer.
 protocol ForecastProtocol {
-
+    func getDateComponent() -> String
+    func getQualityIndex() -> AirQualityIndex
+    func getForecastComponents() -> ForecastComponentsProtocol
 }
 
 struct Forecast {
@@ -33,7 +35,19 @@ struct Forecast {
     }
 }
 
+protocol ForecastComponentsProtocol {
+    func getCarbonMonoxide() -> Double
+    func getNitrogenMonoxide() -> Double
+    func getNitrogenDioxide() -> Double
+    func getOzone() -> Double
+    func getSulphurDioxide() -> Double
+    func getFineParticles() -> Double
+    func getCoarseParticulate() -> Double
+    func getAmmonia() -> Double
+}
+
 // Different properties and concentrations of the air quality forecast
+// We define on an struct so we can transition the API Response Model into the APP model more smoothly
 struct ForecastComponents: Codable {
     private var carbonMonoxide: Double
     private var nitrogenMonoxide: Double
@@ -55,8 +69,45 @@ struct ForecastComponents: Codable {
     }
 }
 
-// MARK: - PugProtocol Extension
+// MARK: - ForecastProtocol Extension
 extension Forecast: ForecastProtocol {
+    func getDateComponent() -> String {
+        return self.dateComponent
+    }
 
+    func getQualityIndex() -> AirQualityIndex {
+        return self.qualityIndex
+    }
+
+    func getForecastComponents() -> ForecastComponentsProtocol {
+        return self.forecastComponents
+    }
 }
 
+// MARK: - ForecastComponentsProtocol Extension
+extension ForecastComponents: ForecastComponentsProtocol {
+    func getCarbonMonoxide() -> Double {
+        return self.carbonMonoxide
+    }
+    func getNitrogenMonoxide() -> Double {
+        return self.nitrogenMonoxide
+    }
+    func getNitrogenDioxide() -> Double {
+        return self.nitrogenDioxide
+    }
+    func getOzone() -> Double {
+        return self.ozone
+    }
+    func getSulphurDioxide() -> Double {
+        return self.sulphurDioxide
+    }
+    func getFineParticles() -> Double {
+        return self.fineParticles
+    }
+    func getCoarseParticulate() -> Double {
+        return self.coarseParticulate
+    }
+    func getAmmonia() -> Double {
+        return self.ammonia
+    }
+}
