@@ -9,12 +9,17 @@
 /* Begin PBXBuildFile section */
 		BCD0BED826AF63C300D42FC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0BED726AF63C300D42FC3 /* AppDelegate.swift */; };
 		BCD0BEDA26AF63C300D42FC3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0BED926AF63C300D42FC3 /* SceneDelegate.swift */; };
-		BCD0BEDC26AF63C300D42FC3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0BEDB26AF63C300D42FC3 /* ViewController.swift */; };
+		BCD0BEDC26AF63C300D42FC3 /* ForecastListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0BEDB26AF63C300D42FC3 /* ForecastListViewController.swift */; };
 		BCD0BEDF26AF63C300D42FC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD0BEDD26AF63C300D42FC3 /* Main.storyboard */; };
 		BCD0BEE126AF63C600D42FC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCD0BEE026AF63C600D42FC3 /* Assets.xcassets */; };
 		BCD0BEE426AF63C600D42FC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD0BEE226AF63C600D42FC3 /* LaunchScreen.storyboard */; };
 		BCD0BEEF26AF63C700D42FC3 /* AirScannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0BEEE26AF63C700D42FC3 /* AirScannerTests.swift */; };
 		BCD0BEFA26AF63C700D42FC3 /* AirScannerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0BEF926AF63C700D42FC3 /* AirScannerUITests.swift */; };
+		BCD0BF1526AF734C00D42FC3 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0BF1426AF734C00D42FC3 /* Forecast.swift */; };
+		BCD0BF1726AF78CE00D42FC3 /* ApiResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0BF1626AF78CE00D42FC3 /* ApiResponses.swift */; };
+		BCD0BF1926AF7D7C00D42FC3 /* ForecastModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0BF1826AF7D7C00D42FC3 /* ForecastModelController.swift */; };
+		BCD0BF1B26AF7EF000D42FC3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0BF1A26AF7EF000D42FC3 /* NetworkManager.swift */; };
+		BCD0BF1D26AF7F9400D42FC3 /* AppURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0BF1C26AF7F9400D42FC3 /* AppURL.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +43,7 @@
 		BCD0BED426AF63C300D42FC3 /* AirScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCD0BED726AF63C300D42FC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCD0BED926AF63C300D42FC3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BCD0BEDB26AF63C300D42FC3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BCD0BEDB26AF63C300D42FC3 /* ForecastListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastListViewController.swift; sourceTree = "<group>"; };
 		BCD0BEDE26AF63C300D42FC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BCD0BEE026AF63C600D42FC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCD0BEE326AF63C600D42FC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +54,11 @@
 		BCD0BEF526AF63C700D42FC3 /* AirScannerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirScannerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCD0BEF926AF63C700D42FC3 /* AirScannerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirScannerUITests.swift; sourceTree = "<group>"; };
 		BCD0BEFB26AF63C700D42FC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCD0BF1426AF734C00D42FC3 /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
+		BCD0BF1626AF78CE00D42FC3 /* ApiResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponses.swift; sourceTree = "<group>"; };
+		BCD0BF1826AF7D7C00D42FC3 /* ForecastModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastModelController.swift; sourceTree = "<group>"; };
+		BCD0BF1A26AF7EF000D42FC3 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		BCD0BF1C26AF7F9400D42FC3 /* AppURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppURL.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +109,10 @@
 		BCD0BED626AF63C300D42FC3 /* AirScanner */ = {
 			isa = PBXGroup;
 			children = (
-				BCD0BED726AF63C300D42FC3 /* AppDelegate.swift */,
-				BCD0BED926AF63C300D42FC3 /* SceneDelegate.swift */,
-				BCD0BEDB26AF63C300D42FC3 /* ViewController.swift */,
-				BCD0BEDD26AF63C300D42FC3 /* Main.storyboard */,
+				BCD0BF0826AF65BC00D42FC3 /* Support */,
+				BCD0BF0726AF65B300D42FC3 /* Presentation */,
+				BCD0BF0926AF65C600D42FC3 /* Main */,
 				BCD0BEE026AF63C600D42FC3 /* Assets.xcassets */,
-				BCD0BEE226AF63C600D42FC3 /* LaunchScreen.storyboard */,
 				BCD0BEE526AF63C600D42FC3 /* Info.plist */,
 			);
 			path = AirScanner;
@@ -126,6 +134,117 @@
 				BCD0BEFB26AF63C700D42FC3 /* Info.plist */,
 			);
 			path = AirScannerUITests;
+			sourceTree = "<group>";
+		};
+		BCD0BF0726AF65B300D42FC3 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				BCD0BF0F26AF663E00D42FC3 /* Extensions */,
+				BCD0BF0E26AF663600D42FC3 /* Protocols */,
+				BCD0BF0D26AF663200D42FC3 /* Cells */,
+				BCD0BF0C26AF662D00D42FC3 /* Storyboards */,
+				BCD0BF0B26AF65EA00D42FC3 /* Model Controllers */,
+				BCD0BF0A26AF65E000D42FC3 /* View Controllers */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		BCD0BF0826AF65BC00D42FC3 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				BCD0BED726AF63C300D42FC3 /* AppDelegate.swift */,
+				BCD0BED926AF63C300D42FC3 /* SceneDelegate.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		BCD0BF0926AF65C600D42FC3 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				BCD0BF1126AF665100D42FC3 /* Objects */,
+				BCD0BF1026AF664700D42FC3 /* Networking */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		BCD0BF0A26AF65E000D42FC3 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BCD0BEDB26AF63C300D42FC3 /* ForecastListViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		BCD0BF0B26AF65EA00D42FC3 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BCD0BF1826AF7D7C00D42FC3 /* ForecastModelController.swift */,
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		BCD0BF0C26AF662D00D42FC3 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				BCD0BEDD26AF63C300D42FC3 /* Main.storyboard */,
+				BCD0BEE226AF63C600D42FC3 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		BCD0BF0D26AF663200D42FC3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		BCD0BF0E26AF663600D42FC3 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		BCD0BF0F26AF663E00D42FC3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BCD0BF1026AF664700D42FC3 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				BCD0BF1326AF66A600D42FC3 /* Support */,
+				BCD0BF1226AF66A000D42FC3 /* Objects */,
+				BCD0BF1A26AF7EF000D42FC3 /* NetworkManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		BCD0BF1126AF665100D42FC3 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				BCD0BF1426AF734C00D42FC3 /* Forecast.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		BCD0BF1226AF66A000D42FC3 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				BCD0BF1626AF78CE00D42FC3 /* ApiResponses.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		BCD0BF1326AF66A600D42FC3 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				BCD0BF1C26AF7F9400D42FC3 /* AppURL.swift */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +377,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCD0BEDC26AF63C300D42FC3 /* ViewController.swift in Sources */,
+				BCD0BF1926AF7D7C00D42FC3 /* ForecastModelController.swift in Sources */,
+				BCD0BF1526AF734C00D42FC3 /* Forecast.swift in Sources */,
+				BCD0BEDC26AF63C300D42FC3 /* ForecastListViewController.swift in Sources */,
+				BCD0BF1D26AF7F9400D42FC3 /* AppURL.swift in Sources */,
+				BCD0BF1B26AF7EF000D42FC3 /* NetworkManager.swift in Sources */,
+				BCD0BF1726AF78CE00D42FC3 /* ApiResponses.swift in Sources */,
 				BCD0BED826AF63C300D42FC3 /* AppDelegate.swift in Sources */,
 				BCD0BEDA26AF63C300D42FC3 /* SceneDelegate.swift in Sources */,
 			);
