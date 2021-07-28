@@ -42,7 +42,6 @@ extension NetworkManager: NetworkControllerProtocol {
         }
 
         if let currentForecastURL = forecastURL {
-            print("URL IS: ", currentForecastURL)
             // Convert into function
             URLSession.shared.dataTask(with: currentForecastURL, completionHandler: { (data, response, error) in
                 do {
@@ -56,7 +55,7 @@ extension NetworkManager: NetworkControllerProtocol {
                     if let forecastsResponse = response.list {
                         forecastsResponse.forEach() {
                             if let qualityIndex: AirQualityIndex = AirQualityIndex(rawValue: $0.airQualityIndex.airQuality) {
-                                let date = String($0.date)
+                                let date = $0.date
                                 let forecastComponents = $0.components
                                 let newForecast = Forecast(date: date, qualityIndex: qualityIndex, components: forecastComponents)
                                 forecastList.append(newForecast)

@@ -8,7 +8,8 @@
 import Foundation
 
 protocol ForecastControllerProtocol {
-    func requestCurrentForecastData(requestType: ForecastRequestType ,completion: @escaping (Bool) -> Void)
+    func requestForecastData(requestType: ForecastRequestType ,completion: @escaping (Bool) -> Void)
+    func getCurrentForecast() -> ForecastProtocol?
 }
 
 // Ideally we would have 2 separates Model Controllers - one for the forecastList array, another one for each Forecast item that would be injected to "ForecastDetailsVC", but due to the low complexity of the project, and time constraints we're only implementing one
@@ -31,8 +32,15 @@ class ForecastModelController {
 // MARK: - ForecastControllerProtocol extension
 extension ForecastModelController: ForecastControllerProtocol {
 
-    // Current air pollution data
-    func requestCurrentForecastData(requestType: ForecastRequestType ,completion: @escaping (Bool) -> Void) {
+    func getCurrentForecast() -> ForecastProtocol? {
+        return self.currentForecast
+    }
+
+    // Makes a request to the Network Manager to retrieve the selected forecast data
+    //
+    // - Parameter requestType: type of forecast data to be retrieved (current forecast request or upcoming forecast data)
+    // - Returns status: final status from the request
+    func requestForecastData(requestType: ForecastRequestType, completion: @escaping (Bool) -> Void) {
 
         self.networkManager.downloadForecastData(requestType: requestType, latitude: self.defaultLatitude, longitude: self.defaultLongitude) {  [weak self] result in
             guard let `self` = self else { return }
@@ -44,7 +52,6 @@ extension ForecastModelController: ForecastControllerProtocol {
                     completion(true)
                 } else if requestType == .upcomingForecast {
                     print("Upcoming forecast request successfully")
-                    print("ELEMENTS: ", forecastList.count)
                     self.forecastList = forecastList
                     completion(true)
                 }
@@ -52,7 +59,6 @@ extension ForecastModelController: ForecastControllerProtocol {
                 print("Current forecast request failed: ", error)
                 completion(false)
             }
-
         }
     }
 }

@@ -21,7 +21,7 @@ struct APIForecastListResponse: Codable {
 struct APIForecastResponse: Codable {
     let airQualityIndex: APIAirQualityResponse
     let components: ForecastComponents
-    let date: Int
+    let date: Double
 
     enum CodingKeys: String, CodingKey {
         case airQualityIndex = "main"

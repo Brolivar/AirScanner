@@ -14,21 +14,35 @@ enum AirQualityIndex: Int {
     case moderate
     case poor
     case veryPoor
+    var description: String {      // Printable description
+        switch self {
+        case .good:
+            return NSLocalizedString("Good", comment: "")
+        case .fair:
+            return NSLocalizedString("Fair", comment: "")
+        case .moderate:
+            return NSLocalizedString("Moderate", comment: "")
+        case .poor:
+            return NSLocalizedString("Poor", comment: "")
+        case .veryPoor:
+            return NSLocalizedString("Very poor", comment: "")
+        }
+    }
 }
 // By abstracting the forecast (and forecast components) into a protocol we ensure the whole object is not shared,
 // only the protocol with the functions to read or write, which is way safer.
 protocol ForecastProtocol {
-    func getDateComponent() -> String
+    func getDateComponent() -> Double
     func getQualityIndex() -> AirQualityIndex
     func getForecastComponents() -> ForecastComponentsProtocol
 }
 
 struct Forecast {
-    private var dateComponent: String
+    private var dateComponent: Double
     private var qualityIndex: AirQualityIndex
     private var forecastComponents: ForecastComponents
 
-    init(date: String, qualityIndex: AirQualityIndex, components: ForecastComponents) {
+    init(date: Double, qualityIndex: AirQualityIndex, components: ForecastComponents) {
         self.dateComponent = date
         self.qualityIndex = qualityIndex
         self.forecastComponents = components
@@ -71,7 +85,7 @@ struct ForecastComponents: Codable {
 
 // MARK: - ForecastProtocol Extension
 extension Forecast: ForecastProtocol {
-    func getDateComponent() -> String {
+    func getDateComponent() -> Double {
         return self.dateComponent
     }
 
