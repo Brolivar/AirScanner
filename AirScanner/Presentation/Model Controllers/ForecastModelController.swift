@@ -16,6 +16,8 @@ struct DaySection {
 protocol ForecastControllerProtocol {
     func requestForecastData(requestType: ForecastRequestType ,completion: @escaping (Bool) -> Void)
     func getCurrentForecast() -> ForecastProtocol?
+    func setSelectedForecast(at indexRow: Int, indexSection: Int)
+    func getSelectedForecast() -> ForecastProtocol?
     func getSectionAt(_ index: Int) -> DaySection
     func getForecastListCount() -> Int
     func forecastAt(indexSection: Int, indexRow: Int) -> ForecastProtocol?
@@ -33,7 +35,8 @@ class ForecastModelController {
     private var forecastSections: [DaySection] = []
 
     private var networkManager: NetworkControllerProtocol = NetworkManager()
-    private var selectedForecast: Int?
+    private var selectedForecastIndexRow: Int?
+    private var selectedForecastIndexSection: Int?
 
     private let defaultLatitude = 48.13743
     private let defaultLongitude = 11.57549
@@ -58,6 +61,20 @@ extension ForecastModelController: ForecastControllerProtocol {
 
     func getCurrentForecast() -> ForecastProtocol? {
         return self.currentForecast
+    }
+
+
+    func setSelectedForecast(at indexRow: Int, indexSection: Int) {
+        self.selectedForecastIndexSection = indexSection
+        self.selectedForecastIndexRow = indexRow
+    }
+
+    func getSelectedForecast() -> ForecastProtocol? {
+        if let indexRow = self.selectedForecastIndexRow, let indexSection = self.selectedForecastIndexSection {
+            return self.forecastSections[indexSection].forecasts[indexRow]
+        } else {
+            return .none
+        }
     }
 
     func getSectionAt(_ index: Int) -> DaySection {
@@ -98,7 +115,6 @@ extension ForecastModelController: ForecastControllerProtocol {
 
     // Groups and sorts the forecast list by date.
     private func groupForecastsByDate() {
-
         // We get the dictionary of grouped -> date: [Forecasts]
         let groupedDictionary = self.groupedForecastByDay()
         let dateFormatter = DateFormatter()

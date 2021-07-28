@@ -46,7 +46,7 @@ class ForecastTableViewCell: UITableViewCell {
     private func formatForecastDate(date: Double) -> String {
         let date = Date(timeIntervalSince1970: date)
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm - dd/MM/yy"
+        dateFormatter.dateFormat = "HH:mm a"
         dateFormatter.timeZone = .current
         let localDate = dateFormatter.string(from: date)
         return localDate

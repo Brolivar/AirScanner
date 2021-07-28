@@ -17,14 +17,19 @@ class ForecastListViewController: UIViewController {
     @IBOutlet private var airQualityLabel: UILabel!
     @IBOutlet private var currentDateLabel: UILabel!
     @IBOutlet private var forecastTableView: UITableView!
-
+    @IBOutlet private var currentForecastView: UIView!
 
     // MARK: - Private properties
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.shadowImage = UIImage()
         self.requestCurrentForecast()
         self.requestUpcomingForecasts()
+
+        // Gesture recognizer to navigate to the detail view from tapping the current forecast view
+        let currentForecastGesture = UITapGestureRecognizer(target: self, action:  #selector (self.navigateToDetailView))
+        self.currentForecastView.addGestureRecognizer(currentForecastGesture)
     }
 
 
@@ -65,6 +70,31 @@ class ForecastListViewController: UIViewController {
         return localDate
     }
 
+    // MARK: - Navigation
+    // A better solution would have been the implementation of coordinators to manage app navigation, ensuring better
+    // isolation, abstraction, and better separation of responsabilities
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == ForecastDetailsViewController.detailSegueId {
+            if let destVc = segue.destination as? ForecastDetailsViewController, let selectedIndexPath = self.forecastTableView.indexPathForSelectedRow {
+                self.forecastManager.setSelectedForecast(at: selectedIndexPath.row, indexSection: selectedIndexPath.section)
+                destVc.forecastManager = self.forecastManager
+                // Change back button title
+                let backItem = UIBarButtonItem()
+                navigationItem.backBarButtonItem = backItem
+            }
+        }
+    }
+
+    @objc private func navigateToDetailView() {
+        if let controller = storyboard?.instantiateViewController(withIdentifier: String(describing: ForecastDetailsViewController.self)) as? ForecastDetailsViewController {
+            controller.forecastManager = self.forecastManager
+            controller.isCurrentForecastSelected = true
+            // Change back button title
+            let backItem = UIBarButtonItem()
+            navigationItem.backBarButtonItem = backItem
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+    }
 }
 
 // MARK: - UITableViewDelegate Extension

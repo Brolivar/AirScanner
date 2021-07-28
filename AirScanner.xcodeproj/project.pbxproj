@@ -23,6 +23,7 @@
 		BCD0BF2026AF945500D42FC3 /* Forecast.json in Resources */ = {isa = PBXBuildFile; fileRef = BCD0BF1F26AF945500D42FC3 /* Forecast.json */; };
 		BCD0BF2226AF9CCB00D42FC3 /* ForecastRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0BF2126AF9CCB00D42FC3 /* ForecastRouterTests.swift */; };
 		BCD0BF2626B0DF1F00D42FC3 /* ForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0BF2526B0DF1F00D42FC3 /* ForecastTableViewCell.swift */; };
+		BCD0BF2826B1B14000D42FC3 /* ForecastDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0BF2726B1B14000D42FC3 /* ForecastDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		BCD0BF1F26AF945500D42FC3 /* Forecast.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Forecast.json; sourceTree = "<group>"; };
 		BCD0BF2126AF9CCB00D42FC3 /* ForecastRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastRouterTests.swift; sourceTree = "<group>"; };
 		BCD0BF2526B0DF1F00D42FC3 /* ForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastTableViewCell.swift; sourceTree = "<group>"; };
+		BCD0BF2726B1B14000D42FC3 /* ForecastDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				BCD0BEDB26AF63C300D42FC3 /* ForecastListViewController.swift */,
+				BCD0BF2726B1B14000D42FC3 /* ForecastDetailsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 			files = (
 				BCD0BF1926AF7D7C00D42FC3 /* ForecastModelController.swift in Sources */,
 				BCD0BF1526AF734C00D42FC3 /* Forecast.swift in Sources */,
+				BCD0BF2826B1B14000D42FC3 /* ForecastDetailsViewController.swift in Sources */,
 				BCD0BEDC26AF63C300D42FC3 /* ForecastListViewController.swift in Sources */,
 				BCD0BF1D26AF7F9400D42FC3 /* AppURL.swift in Sources */,
 				BCD0BF1B26AF7EF000D42FC3 /* NetworkManager.swift in Sources */,
