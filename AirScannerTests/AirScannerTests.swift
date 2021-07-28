@@ -31,7 +31,7 @@ class AirScannerTests: XCTestCase {
     }
 
     // Test that the Codable parser is able to decode the json format into a Forecast object
-     func testStoryCodable() {
+     func testForecastCodable() {
         // properties to match
         let airQualityIndex = 1
         let co = 175.24

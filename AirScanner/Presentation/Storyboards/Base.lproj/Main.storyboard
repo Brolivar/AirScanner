@@ -45,13 +45,69 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9ya-ps-Zup" userLabel="Forecast Table View">
+                                <rect key="frame" x="10" y="258" width="394" height="584"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ForecastTableViewCell" rowHeight="50" id="2EY-dk-Lfp" customClass="ForecastTableViewCell" customModule="AirScanner" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="394" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2EY-dk-Lfp" id="g37-d7-cjP">
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1:00 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHI-HM-uMj" userLabel="Forecast Date Label">
+                                                    <rect key="frame" x="20" y="15" width="62.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fair" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E6P-a5-kUz">
+                                                    <rect key="frame" x="336.5" y="15" width="27.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FDe-Fr-fc6">
+                                                    <rect key="frame" x="369" y="17" width="20" height="16.5"/>
+                                                    <color key="tintColor" systemColor="labelColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="EvR-ZG-Xfn"/>
+                                                        <constraint firstAttribute="width" constant="20" id="s9r-r8-tfP"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="FDe-Fr-fc6" firstAttribute="centerY" secondItem="g37-d7-cjP" secondAttribute="centerY" id="8oK-Dj-izl"/>
+                                                <constraint firstAttribute="trailing" secondItem="FDe-Fr-fc6" secondAttribute="trailing" constant="5" id="VxS-RQ-Hpl"/>
+                                                <constraint firstItem="FDe-Fr-fc6" firstAttribute="leading" secondItem="E6P-a5-kUz" secondAttribute="trailing" constant="5" id="YYp-Cc-QB4"/>
+                                                <constraint firstItem="E6P-a5-kUz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HHI-HM-uMj" secondAttribute="trailing" constant="30" id="e4L-f7-625"/>
+                                                <constraint firstItem="HHI-HM-uMj" firstAttribute="centerY" secondItem="g37-d7-cjP" secondAttribute="centerY" id="fTO-4m-6vx"/>
+                                                <constraint firstItem="HHI-HM-uMj" firstAttribute="leading" secondItem="g37-d7-cjP" secondAttribute="leading" constant="20" id="kUo-Td-iUi"/>
+                                                <constraint firstItem="E6P-a5-kUz" firstAttribute="centerY" secondItem="g37-d7-cjP" secondAttribute="centerY" id="p5N-G7-ZFz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="airQualityIndexLabel" destination="E6P-a5-kUz" id="5Zp-Wj-7cH"/>
+                                            <outlet property="dateLabel" destination="HHI-HM-uMj" id="ZFA-Sb-6Z9"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="2ih-eP-xpZ"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="XO2-o1-4Y8"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9ya-ps-Zup" secondAttribute="trailing" constant="10" id="DSt-nQ-ha4"/>
                             <constraint firstItem="mm1-6I-cDh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Rsv-0b-2QT"/>
                             <constraint firstItem="mZ6-G7-l2I" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ULt-3B-htK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9ya-ps-Zup" secondAttribute="bottom" constant="20" id="VKP-ID-pBm"/>
+                            <constraint firstItem="9ya-ps-Zup" firstAttribute="top" secondItem="mZ6-G7-l2I" secondAttribute="bottom" constant="20" id="Z04-wT-WJW"/>
                             <constraint firstItem="mm1-6I-cDh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="cHJ-a6-LF5"/>
+                            <constraint firstItem="9ya-ps-Zup" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="ktL-9Y-R1j"/>
                             <constraint firstItem="mZ6-G7-l2I" firstAttribute="top" secondItem="mm1-6I-cDh" secondAttribute="bottom" constant="40" id="oz3-J2-IhZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mm1-6I-cDh" secondAttribute="trailing" constant="20" id="tdi-PN-m1Z"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mZ6-G7-l2I" secondAttribute="trailing" constant="20" id="wkx-Wr-Jj8"/>
@@ -60,14 +116,19 @@
                     <connections>
                         <outlet property="airQualityLabel" destination="XIO-kc-6JV" id="tsg-hx-GtY"/>
                         <outlet property="currentDateLabel" destination="rwz-4n-b6e" id="sIe-6d-4gH"/>
+                        <outlet property="forecastTableView" destination="9ya-ps-Zup" id="xvP-m6-YHc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="139"/>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.forward" catalog="system" width="96" height="128"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

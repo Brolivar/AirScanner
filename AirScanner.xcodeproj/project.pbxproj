@@ -22,6 +22,7 @@
 		BCD0BF1D26AF7F9400D42FC3 /* AppURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0BF1C26AF7F9400D42FC3 /* AppURL.swift */; };
 		BCD0BF2026AF945500D42FC3 /* Forecast.json in Resources */ = {isa = PBXBuildFile; fileRef = BCD0BF1F26AF945500D42FC3 /* Forecast.json */; };
 		BCD0BF2226AF9CCB00D42FC3 /* ForecastRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0BF2126AF9CCB00D42FC3 /* ForecastRouterTests.swift */; };
+		BCD0BF2626B0DF1F00D42FC3 /* ForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0BF2526B0DF1F00D42FC3 /* ForecastTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		BCD0BF1C26AF7F9400D42FC3 /* AppURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppURL.swift; sourceTree = "<group>"; };
 		BCD0BF1F26AF945500D42FC3 /* Forecast.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Forecast.json; sourceTree = "<group>"; };
 		BCD0BF2126AF9CCB00D42FC3 /* ForecastRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastRouterTests.swift; sourceTree = "<group>"; };
+		BCD0BF2526B0DF1F00D42FC3 /* ForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 		BCD0BF0D26AF663200D42FC3 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				BCD0BF2526B0DF1F00D42FC3 /* ForecastTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				BCD0BF1D26AF7F9400D42FC3 /* AppURL.swift in Sources */,
 				BCD0BF1B26AF7EF000D42FC3 /* NetworkManager.swift in Sources */,
 				BCD0BF1726AF78CE00D42FC3 /* ApiResponses.swift in Sources */,
+				BCD0BF2626B0DF1F00D42FC3 /* ForecastTableViewCell.swift in Sources */,
 				BCD0BED826AF63C300D42FC3 /* AppDelegate.swift in Sources */,
 				BCD0BEDA26AF63C300D42FC3 /* SceneDelegate.swift in Sources */,
 			);

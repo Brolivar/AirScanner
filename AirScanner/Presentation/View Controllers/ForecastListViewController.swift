@@ -16,6 +16,7 @@ class ForecastListViewController: UIViewController {
     // MARK: - UI properties
     @IBOutlet private var airQualityLabel: UILabel!
     @IBOutlet private var currentDateLabel: UILabel!
+    @IBOutlet private var forecastTableView: UITableView!
 
 
     // MARK: - Private properties
@@ -23,9 +24,7 @@ class ForecastListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.requestCurrentForecast()
-//        forecastManager.requestCurrentForecastData(requestType: .currentForecast) { status in
-//            print("STATUS: ", status)
-//        }
+        self.requestUpcomingForecasts()
     }
 
 
@@ -36,7 +35,6 @@ class ForecastListViewController: UIViewController {
             if status {
                 if let currentAirForecast = self.forecastManager.getCurrentForecast() {
                     DispatchQueue.main.async {
-                        print("qualit: \(currentAirForecast.getQualityIndex())")
                         self.airQualityLabel.text = currentAirForecast.getQualityIndex().description
                         self.currentDateLabel.text = self.formatForecastDate(date: currentAirForecast.getDateComponent())
                     }
@@ -44,6 +42,15 @@ class ForecastListViewController: UIViewController {
                     print("Error: No current forecast available")
                 }
 
+            }
+        }
+    }
+
+    private func requestUpcomingForecasts() {
+        forecastManager.requestForecastData(requestType: .upcomingForecast) { status in
+            print("Upcoming forecast request status: ", status)
+            DispatchQueue.main.async {
+                self.forecastTableView.reloadData()
             }
         }
     }
@@ -60,3 +67,32 @@ class ForecastListViewController: UIViewController {
 
 }
 
+// MARK: - UITableViewDelegate Extension
+extension ForecastListViewController: UITableViewDelegate {}
+
+// MARK: - UITableViewDataSource Extension
+extension ForecastListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ForecastTableViewCell.self), for: indexPath) as? ForecastTableViewCell
+            else { return UITableViewCell() }
+        let indexRow = indexPath.row
+        let indexSection = indexPath.section
+
+        if let cellForecast = forecastManager.forecastAt(indexSection: indexSection, indexRow: indexRow) {
+            cell.configure(from: cellForecast)
+        }
+        return cell
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.forecastManager.getNumberOfSections()
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.forecastManager.getSectionAt(section).forecasts.count
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.forecastManager.getSectionAt(section).title
+    }
+}
